@@ -4,7 +4,7 @@
 **Curso:** 2º de DAM  
 **Asignatura:** Programación de Servicios y Procesos  
 **Profesor:** Antoni Giménez Rodríguez  
-**Fecha:** Octubre de 2025  
+**Fecha:** 2 de Noviembre de 2025 
 
 ---
 
