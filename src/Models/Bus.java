@@ -10,9 +10,12 @@ public class Bus {
     private static final int MIN_SPEED = 50;
     private static final int MAX_SPEED = 80;
 
+    // solucion a los "turnos" de los hilos, usando un booleano para decir si es el turno de acelerar o frenar
+    private boolean canBrake = false;
+
     // atributos
     private String plate;
-    private int speed = 50;
+    private int speed = MIN_SPEED; // velocidad inicial del autobus (50)
 
     // constructor con velocidad "opcional"
     public Bus(String plate) {
@@ -44,8 +47,8 @@ public class Bus {
 
     // metodos
     public synchronized void accelerate(int randomSpeed) {
-        // si la velocidad actual más la nueva supera el maximo, espera a ser notificado
-        while(this.speed + randomSpeed > MAX_SPEED) {
+        // si el turno es de frenar, espera a ser notificado
+        while(canBrake) {
             try {
                 wait(); // espera a ser notificado por otro hilo
             } catch (InterruptedException ex) {
@@ -53,15 +56,28 @@ public class Bus {
                 System.out.println("ERROR: " + ex.getMessage());
             }
         }
-        // si no, acelera y lo dice (notify)
+
+        // SOLO notifica el cambio de turno si ha llegado a la velocidad maxima
+        if (this.speed + randomSpeed > MAX_SPEED) {
+            canBrake = true; // pasa el turno a frenar
+            notifyAll(); // notifica
+            return; // uso aqui return para salir del metodo y no acelerar mas alla del maximo
+        }
+
+        // si no, acelera y lo dice
         this.speed += randomSpeed;
         System.out.println("Acelero " + randomSpeed + "km/h. Ahora vamos a: " + this.speed + "km/h.");
-        notifyAll(); // notifica a los hilos que estan esperando (brake)
+
+        if (speed >= MAX_SPEED) {
+            canBrake = true; // pasa el turno a frenar
+            notifyAll();
+            // aqui no uso return porque ya ha acelerado al maximo
+        }
     }
 
     public synchronized void brake(int randomSpeed) {
-        // si la velocidad actual menos la nueva es menor al minimo, espera a ser notificado
-        while(this.speed - randomSpeed < MIN_SPEED) {
+        // si el turno es de acelerar, espera a ser notificado
+        while(!canBrake) {
             try {
                 wait(); // espera a ser notificado por otro hilo
             } catch (InterruptedException ex) {
@@ -69,9 +85,22 @@ public class Bus {
                 System.out.println("ERROR: " + ex.getMessage());
             }
         }
+
+        // SOLO notifica el cambio de turno si ha llegado a la velocidad maxima
+        if (this.speed - randomSpeed < MIN_SPEED) {
+            canBrake = false; // pasa el turno a acelerar
+            notifyAll(); // notifica
+            return; // uso aqui return para salir del metodo y no acelerar mas alla del maximo
+        }
+
         // si no, frena y lo dice
         this.speed -= randomSpeed;
         System.out.println("Freno " + randomSpeed + "km/h. Ahora vamos a: " + this.speed + "km/h.");
-        notifyAll(); // notifica a los hilos que estan esperando (accelerate)
+
+        if (this.speed <= MIN_SPEED) {
+            canBrake = false; // pasa el turno a acelerar
+            notifyAll();
+            // aqui no uso return porque ya ha acelerado al maximo
+        }
     }
 }
