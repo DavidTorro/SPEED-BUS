@@ -3,7 +3,7 @@
  * @course: 2º DAM
  * @teacher: Antoni Gimenez Rodriguez
  * @author: David Torró Bautista
- * @date: 2023-10-05
+ * @date: 02-11-2025
  * @description: Modelo de autobús simple que modifica la velocidad y muestra “BOOM!!!”
  *               al llegar a 50 o 80 km/h.
  */
