@@ -1,3 +1,14 @@
+/**
+ * @project: README.md
+ * @course: 2º DAM
+ * @teacher: Antoni Gimenez Rodriguez
+ * @author: David Torró Bautista
+ * @date: 2023-10-05
+ * @description: Hilo que, en cada iteración, acelera o frena un Bus con
+ *               un incremento aleatorio (1-10) y espera 1 segundo entre cambios.
+ *               Útil para la simulación en paralelo.
+ */
+
 package Models;
 
 public class Speed extends Thread { // extiende de Thread para poder correr en hilos diferentes

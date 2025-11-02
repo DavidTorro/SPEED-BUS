@@ -1,3 +1,15 @@
+/**
+ * @project: README.md
+ * @course: 2º DAM
+ * @teacher: Antoni Gimenez Rodriguez
+ * @author: David Torró Bautista
+ * @date: 2023-10-05
+ * @description: Clase principal que muestra un menú y lanza las simulaciones 
+ *               de un autobús que acelera y frena en hilos separados.
+ *               Hay dos modos: uno con loop infinito y otro con posibles explosiones.
+ *               INSPO: SPEED Movie (1994)
+*/
+
 import Models.Bus;
 import Models.Bus2;
 import Models.Speed;
@@ -6,7 +18,7 @@ import Models.Speed2;
 public class Main {
     // Scanner 
     private static java.util.Scanner scanner = new java.util.Scanner(System.in);
-    
+
     // metodo main
     public static void main(String[] args) throws Exception {
         System.out.println("***INICIO DEL PROGRAMA***\n");

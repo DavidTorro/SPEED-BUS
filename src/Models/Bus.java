@@ -1,3 +1,13 @@
+/**
+ * @project: README.md
+ * @course: 2º DAM
+ * @teacher: Antoni Gimenez Rodriguez
+ * @author: David Torró Bautista
+ * @date: 2023-10-05
+ * @description: Modelo de autobús con límites de velocidad (50–80 km/h) y coordinación por turnos
+ *               entre acelerar y frenar mediante métodos sincronizados con wait/notifyAll.
+*/
+
 package Models;
 
 public class Bus {

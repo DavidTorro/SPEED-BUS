@@ -35,9 +35,80 @@ Se recomienda tener las siguientes clases:
 
 ---
 
+### 🔧 Versiones del programa
+
+- **Bus / Speed:** versión base que simula la aceleración y el frenado del autobús en un bucle infinito.  
+  Utiliza sincronización mediante los métodos `wait()` y `notifyAll()` para alternar correctamente entre hilos.
+
+- **Bus2 / Speed2:** versión extendida que añade un sistema de “explosiones”.  
+  Si el autobús llega o supera los **80 km/h** o llega o baja de **50 km/h**, se imprime `BOOM!!!`, el hilo se interrumpe
+  y el programa vuelve automáticamente al menú principal.
+
+---
+
+## ✅ Requisitos
+
+- Java 17 o superior (JDK)
+- (Opcional) IDE: IntelliJ IDEA / VS Code / Eclipse
+
+---
+
+## 🗂️ Estructura del proyecto
+```
+speed-bus-simulation/
+├── src/
+│   ├── Main.java
+│   └── Models/
+│       ├── Bus.java
+│       ├── Speed.java
+│       ├── Bus2.java
+│       └── Speed2.java
+├── bin/                 
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🔁 Clonación y ejecución rápida
+Para probar el proyecto en tu PC, sigue estos pasos:
+
+#### 1️⃣ Clona este repositorio en tu equipo
+```
+git clone https://github.com/tu-usuario/speed-bus-simulation.git
+```
+
+#### 2️⃣ Entra en la carpeta del proyecto
+```
+cd speed-bus-simulation
+```
+
+#### 3️⃣ Compila todas las clases Java (desde la raíz del proyecto)
+```
+javac -d bin src/Main.java src/Models/*.java
+```
+
+#### 4️⃣ Ejecuta el programa principal
+```
+java -cp bin Main
+```
+
+---
+
 ## 💡 Ejemplo de ejecución esperada
 
+#### 1️⃣ Opción del loop infinito (para paralo pulsar Ctrl + C)
+
 ```text
+***INICIO DEL PROGRAMA***
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+2
+
 Acelero 10Km./h. Ahora vamos a 60Km./h
 Acelero 3Km./h. Ahora vamos a 63Km./h
 Acelero 7Km./h. Ahora vamos a 70Km./h
@@ -54,6 +125,95 @@ Freno 8Km./h. Ahora vamos a 53Km./h
 Acelero 8Km./h. Ahora vamos a 61Km./h
 ```
 
+#### 2️⃣ Opción de acelerar con explosiones (EXTRA)
+
+```text
+***INICIO DEL PROGRAMA***
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+2
+
+Iniciando simulacion con posibles explosiones...
+Que quieres probar, acelerar o frenar?
+acelerar
+Acelero 1km/h. Ahora vamos a: 51km/h.
+Acelero 3km/h. Ahora vamos a: 54km/h.
+Acelero 5km/h. Ahora vamos a: 59km/h.
+Acelero 3km/h. Ahora vamos a: 62km/h.
+Acelero 4km/h. Ahora vamos a: 66km/h.
+Acelero 9km/h. Ahora vamos a: 75km/h.
+Acelero 5km/h. Ahora vamos a: 80km/h.
+BOOM!!!
+
+Simulacion terminada. Volviendo al menu...
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+3
+Saliendo del programa...
+
+***FINAL DEL PROGRAMA***
+```
+
+#### 3️⃣ Opción de frenar con explosiones (EXTRA)
+
+```text
+***INICIO DEL PROGRAMA***
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+2
+
+Iniciando simulacion con posibles explosiones...
+Que quieres probar, acelerar o frenar?
+frenar
+Freno 7km/h. Ahora vamos a: 73km/h.
+Freno 3km/h. Ahora vamos a: 70km/h.
+Freno 6km/h. Ahora vamos a: 64km/h.
+Freno 4km/h. Ahora vamos a: 60km/h.
+Freno 9km/h. Ahora vamos a: 51km/h.
+Freno 1km/h. Ahora vamos a: 50km/h.
+BOOM!!!
+
+Simulacion terminada. Volviendo al menu...
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+3
+Saliendo del programa...
+
+***FINAL DEL PROGRAMA***
+```
+
+#### 3️⃣ Salir del programa
+
+```text
+***INICIO DEL PROGRAMA***
+
+----- SPEED - BUS -----
+1. Iniciar simulacion (loop infinito)
+2. Iniciar simulacion (con explosiones)
+3. Salir
+Seleccione una opcion: 
+3
+Saliendo del programa...
+
+***FINAL DEL PROGRAMA***
+```
+
 ---
 
 ## 🧩 Notas técnicas
@@ -64,3 +224,10 @@ Acelero 8Km./h. Ahora vamos a 61Km./h
 - El programa debe incluir una **pausa de 1 segundo** entre cada cambio de velocidad.  
 
 ---
+
+## 📜 Licencia
+
+Proyecto académico para uso educativo. © 2025 David Torró Bautista.
+
+---
+💬 *Inspirado en la película **Speed (1994)**. Proyecto desarrollado por David Torró Bautista (2º DAM, IES l'Estació Ontinyent) bajo la supervisión del profesor Antoni Giménez Rodríguez.*
