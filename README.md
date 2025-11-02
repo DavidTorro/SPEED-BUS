@@ -55,7 +55,7 @@ Se recomienda tener las siguientes clases:
 
 ## 🗂️ Estructura del proyecto
 ```
-speed-bus-simulation/
+SPEED-BUS/
 ├── src/
 │   ├── Main.java
 │   └── Models/
@@ -75,12 +75,12 @@ Para probar el proyecto en tu PC, sigue estos pasos:
 
 #### 1️⃣ Clona este repositorio en tu equipo
 ```
-git clone https://github.com/tu-usuario/speed-bus-simulation.git
+git clone https://github.com/DavidTorro/SPEED-BUS
 ```
 
 #### 2️⃣ Entra en la carpeta del proyecto
 ```
-cd speed-bus-simulation
+cd SPEED-BUS
 ```
 
 #### 3️⃣ Compila todas las clases Java (desde la raíz del proyecto)
