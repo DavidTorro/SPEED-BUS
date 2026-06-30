@@ -1,10 +1,6 @@
 # 🚌 Proyecto: Simulación del autobús de la película *Speed (1994)*
 
 **Autor:** David Torró Bautista  
-**Curso:** 2º de DAM  
-**Asignatura:** Programación de Servicios y Procesos  
-**Profesor:** Antoni Giménez Rodríguez  
-**Fecha:** 2 de Noviembre de 2025 
 
 ---
 
